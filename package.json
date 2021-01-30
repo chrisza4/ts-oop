@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc && node dist/index.js",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "script": "ts-node",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
