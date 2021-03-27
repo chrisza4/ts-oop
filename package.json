@@ -18,6 +18,7 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.10",
     "@babel/preset-typescript": "^7.12.7",
+    "@types/chalk": "^2.2.0",
     "@types/jest": "^26.0.19",
     "@types/minio": "^7.0.7",
     "@typescript-eslint/eslint-plugin": "3.3.0",
@@ -33,6 +34,7 @@
   },
   "dependencies": {
     "@types/uuid": "^8.3.0",
+    "chalk": "^4.1.0",
     "jest": "^26.6.3",
     "minio": "^7.0.18",
     "uuid": "^8.3.2"
