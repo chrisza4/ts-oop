@@ -1,0 +1,20 @@
+version: '3.7'
+
+# starts 4 docker containers running minio server instances.
+# using nginx reverse proxy, load balancing, you can access
+# it through port 9000.
+services:
+  minio:
+    image: minio/minio
+    volumes:
+      - data
+    ports:
+      - '9000:9000'
+    expose:
+      - '9000'
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    command: server /data
+volumes:
+  data: {}

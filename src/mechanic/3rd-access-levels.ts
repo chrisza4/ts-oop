@@ -6,11 +6,16 @@ class A {
   }
 }
 
-new A().hello()
+const sss = new A()
+sss.hello()
 
 // Public คือ ทุกคนใช้ได้หมด
 
-// Private
+// Private คือ เข้าได้เฉพาะ Class ตัวเอง
+
+// Protected คือ เข้าได้เฉพาะ Subclass (ไว้ต่อ)
+
+// กฎ: ใช้ Access level ที่น้อยที่สุดเสมอ
 
 class B {
   private data = 'My data'

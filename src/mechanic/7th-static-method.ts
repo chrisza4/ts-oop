@@ -14,3 +14,5 @@ new StringUtils().m()
 // Not depend on stathe: Static
 
 function n() {}
+
+// ไม่ค่อยจำเป็นต้องใช้ แต่รู้ไว้อ่านโค้ด
