@@ -1,23 +1,11 @@
 import fs from 'fs'
 import * as uuid from 'uuid'
 import * as Minio from 'minio'
+import { Role, Employee } from './shared'
 
 const Env = process.env['NODE_ENV']
 
-enum Role {
-  Manager,
-  Employee,
-  CLevel,
-}
-class Employee {
-  Role: Role
-
-  public isRoleHigherThan(role: Role): boolean {
-    return true
-  }
-}
-
-class PurchaseRequest {
+export class PurchaseRequest {
   private description: string
   private owner: Employee
   private amount: number

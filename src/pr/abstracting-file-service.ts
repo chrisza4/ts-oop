@@ -17,7 +17,7 @@ class Employee {
   }
 }
 
-class PurchaseRequest {
+export class PurchaseRequest {
   private description: string
   private owner: Employee
   private amount: number
