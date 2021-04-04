@@ -18,7 +18,6 @@ class Employee {
 }
 
 class PurchaseRequest {
-  private id: string
   private description: string
   private owner: Employee
   private amount: number
@@ -26,8 +25,12 @@ class PurchaseRequest {
   private filePath: string
   private originalFileName: string
 
-  public async Approve(): Promise<void> {
-    if (this.amount > 10000 && !this.owner.isRoleHigherThan(Role.Manager)) {
+  public async Approve(approver: Employee): Promise<void> {
+    if (
+      this.amount > 10000 ||
+      approver.isRoleHigherThan(Role.Manager) ||
+      !this.owner.isRoleHigherThan(Role.Manager)
+    ) {
       throw new Error(
         'The amount in purchase request is higher than what you can requested'
       )
