@@ -1,5 +1,3 @@
-// มีไว้ทำไม? ตัวอย่างใช้งานที่เห็นชัดสุด
-
 class User {
   username: string
   id: number
@@ -13,7 +11,6 @@ class User {
   }
 
   canManageSomethingSensitive(): boolean {
-    // if (this.permission.role)
     if (this.position === 'CEO') {
       return true
     }
@@ -21,21 +18,23 @@ class User {
   }
 }
 
-// console.log('=================== Section 2 =========================')
-
 const normalUser = new User(1, 'Chris', 'random employee')
 const superUser = new User(2, 'Mark', 'CEO')
-console.log(
-  superUser.canManageSomethingSensitive()
-    ? `${superUser.username} can manage sensitive stuff`
-    : `${superUser.username} cannot manage sensitive stuff`
-)
-console.log(
-  normalUser.canManageSomethingSensitive()
-    ? `${normalUser.username} can manage sensitive stuff`
-    : `${normalUser.username} cannot manage sensitive stuff`
-)
+
+if (superUser.canManageSomethingSensitive()) {
+  console.log(`${superUser.username} can manage sensitive stuff`)
+} else {
+  console.log(`${superUser.username} cannot manage sensitive stuff`)
+}
+
+if (normalUser.canManageSomethingSensitive()) {
+  console.log(`${normalUser.username} can manage sensitive stuff`)
+} else {
+  console.log(`${normalUser.username} cannot manage sensitive stuff`)
+}
 
 // ดังนั้น ไม่ว่า User ทุกคนในระบบ จะมี Logic ในการเช็ค canManageSomethingSensitive แบบเดียวกันหมด
 
 // Class เกิดขึ้นจากความต้องการในการทำ Prototype code
+// Class จะล้อมข้อมูลไว้ ทำให้คนเข้าถึงข้อมูลได้ผ่าน Method เท่านั้น
+// Method ก็คือการส่ง Message หากันนั่นเอง

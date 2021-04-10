@@ -15,8 +15,6 @@ sss.hello()
 
 // Protected คือ เข้าได้เฉพาะ Subclass (ไว้ต่อ)
 
-// กฎ: ใช้ Access level ที่น้อยที่สุดเสมอ
-
 class B {
   private data = 'My data'
   public hello() {

@@ -14,8 +14,6 @@ class Logger {
   }
 }
 
-// คนใช้
-
 const log = new Logger()
 log.appendLog('Hello world')
 log.flush()

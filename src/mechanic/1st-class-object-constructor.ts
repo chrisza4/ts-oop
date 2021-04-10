@@ -2,7 +2,7 @@
 
 // Class เป็นเสมือน Prototype แบบหนึ่ง
 class Greeting {
-  name: string // สิ่งนี้เรียกว่า Field คือข้อมูลที่เก็บ จำได้มั้ยครับ Object = Data + Behavior ที่เกี่ยวข้อง
+  name: string // <------ สิ่งนี้เรียกว่า Field หรือก็คือข้อมูลนั่นเอง
   // Class เป็น ต้นแบบในการสร้าง Object
 
   constructor(name: string) {
@@ -40,4 +40,4 @@ async function main() {
   // new ClassName --> เรียกว่า Constructor
 }
 
-// main()
+main()

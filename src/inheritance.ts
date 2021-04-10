@@ -2,15 +2,33 @@ import { Role, Employee } from './pr/shared'
 
 abstract class BaseDocument {
   constructor(private description: string) {}
+  protected name = 'Nothing'
+
+  protected Save(): void {
+    console.log(`Document saved`)
+  }
 
   public Approve(owner: Employee): void {
-    console.log('Approve document')
+    this.Save()
+    console.log(`${this.name} approved`)
   }
 }
 
-class Invoice extends BaseDocument {}
+class Invoice extends BaseDocument {
+  name = 'Invoice'
+  private amount = 0
 
-class Receipt extends BaseDocument {}
+  public Approve(owner: Employee): void {
+    if (this.amount <= 0) {
+      throw Error('Cannot approve invoice without amount')
+    }
+    super.Approve(owner)
+  }
+}
+
+class Receipt extends BaseDocument {
+  name = 'Receipt'
+}
 
 const invoice = new Invoice('Hello')
 const receipt = new Receipt('Receipt')
