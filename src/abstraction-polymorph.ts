@@ -1,38 +1,43 @@
-// ถ้าเราสร้าง UI Engine
-
 interface DrawableEntity {
-  draw(): void
+  draw(x: number, y: number): void
 }
 
+// =========================================
+// ทีมทำงานระบบเกม
+// =========================================
 class GameRenderer {
+  private x: number = 0
+  private y: number = 0
+  
   constructor(private entities: DrawableEntity[]) {}
 
   public render() {
-    // Do something
     for (const entity of this.entities) {
-      entity.draw() // <---- เรียกใช้อะไรก็ได้ที่มี draw คือ Abstraction
-      // เราไม่สนใจว่า entity คืออะไร ขอแค่มี draw พอแล้ว
+      entity.draw(this.x, this.y)
     }
   }
 }
 
-class Character implements DrawableEntity {
-  draw() {
+// =========================================
+// ทีมทำงานศิลป์
+// =========================================
+class CharacterSkin1 implements DrawableEntity {
+  draw(x: number, y: number) {
     // วาดตัวเอก
   }
 }
 
-class Enemy implements DrawableEntity {
-  draw() {
-    // วาดศัตรู
+class CharacterSkin2 implements DrawableEntity {
+  draw(x: number, y: number) {
+    // วาดตัวเอก
   }
 }
 
-const gameEntities: DrawableEntity[] = [new Character(), new Enemy()]
-// ทั้ง Character, Enemy สามารถใช้แทน DrawableEntity ได้ เรียกว่า Polymorphism
+// =========================================
+// ประกอบร่าง
+// =========================================
+
+const gameEntities: DrawableEntity[] = [new CharacterSkin1(), new CharacterSkin2()]
+// ทั้งสองสกินสามารถใช้แทน DrawableEntity ได้ เรียกว่า Polymorphism
 const renderEngine = new GameRenderer(gameEntities)
 renderEngine.render()
-
-// Child class สามารถใช้แทน Base class ได้เสมอ
-// ใน TypeScript มี Type Inference แปลว่าไม่ต้องมี implements ก็ได้
-// ซึ่งใน Advance class ผมจะสอนอีกทีว่าใช้ประโยชน์จากมันยังไง

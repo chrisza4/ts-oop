@@ -1,11 +1,13 @@
 import { Role, Employee } from './pr/shared'
 
-abstract class BaseDocument {
+export abstract class BaseDocument {
   constructor(private description: string) {}
   protected name = 'Nothing'
 
   protected Save(): void {
-    console.log(`Document saved`)
+    // Save to database
+    // ......
+    console.log(`Document ${this.name} saved at ${new Date().toISOString()}`)
   }
 
   public Approve(owner: Employee): void {
@@ -16,21 +18,21 @@ abstract class BaseDocument {
 
 class Invoice extends BaseDocument {
   name = 'Invoice'
-  private amount = 0
-
-  public Approve(owner: Employee): void {
-    if (this.amount <= 0) {
-      throw Error('Cannot approve invoice without amount')
-    }
-    super.Approve(owner)
-  }
+  private amount = 20
 }
 
 class Receipt extends BaseDocument {
   name = 'Receipt'
 }
 
+class Memo extends BaseDocument {
+  public Approve() {
+    throw Error('Approve not support')
+  }
+}
+
 const invoice = new Invoice('Hello')
 const receipt = new Receipt('Receipt')
 invoice.Approve(new Employee())
 receipt.Approve(new Employee())
+

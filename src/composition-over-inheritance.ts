@@ -1,25 +1,42 @@
 import { Employee } from './pr/shared'
 
-interface IApprovable {
+interface Approvable {
   Approve(owner: Employee)
 }
 
-class Approver {
-  constructor(private doc: IApprovable) {}
+interface Persistable {
+  Save()
+}
+
+class StandardApprover {
+  constructor(private doc: Approvable) {}
 
   public ApproveDocument(owner: Employee) {
+    // Complicated logic in standard approve
+    // ------------------------------------
     console.log('Do things here')
   }
 }
 
-class Invoice implements IApprovable {
-  public Approve(owner: Employee) {
-    new Approver(this).ApproveDocument(owner)
+class DocumentSaver {
+  constructor(private doc: Persistable) {}
+  public Save() {
+    console.log('Document saved')
   }
 }
 
-class Receipt implements IApprovable {
+class Invoice implements Approvable, Persistable {
   public Approve(owner: Employee) {
-    new Approver(this).ApproveDocument(owner)
+    new StandardApprover(this).ApproveDocument(owner)
+  }
+
+  public Save() {
+    return new DocumentSaver(this).Save()
+  }
+}
+
+class Receipt implements Persistable {
+  public Save() {
+    return new DocumentSaver(this).Save()
   }
 }

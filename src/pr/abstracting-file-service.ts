@@ -36,10 +36,6 @@ export class PurchaseRequest {
       )
     }
 
-    // เราต้องการเขียนว่า
-    // const filePath = `${uuid.v4()}-${this.originalFileName}`
-    // fileService.save(filePath, this.fileContent)
-
     const filePath = `${uuid.v4()}-${this.originalFileName}`
     const fileService: FileService = getFileService()
     await fileService.save(filePath, this.fileContent)
