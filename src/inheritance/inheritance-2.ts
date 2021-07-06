@@ -1,5 +1,5 @@
 import { BaseDocument } from './inheritance'
-import { Role, Employee } from '../pr/shared'
+import { Role, Employee } from '../abstraction-polymorph/shared'
 
 class BaseBaseDocument extends BaseDocument {
   public Save() {

@@ -1,4 +1,4 @@
-import { Role, Employee } from './pr/shared'
+import { Role, Employee } from '../abstraction-polymorph/shared'
 
 export abstract class BaseDocument {
   constructor(private description: string) {}
