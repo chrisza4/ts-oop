@@ -1,4 +1,4 @@
-import { Employee } from './pr/shared'
+import { Employee } from '../pr/shared'
 
 interface Approvable {
   Approve(owner: Employee)
